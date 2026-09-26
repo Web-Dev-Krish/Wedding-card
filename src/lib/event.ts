@@ -1,0 +1,17 @@
+export const EVENT = {
+  brideName: 'Ava',
+  groomName: 'Ethan',
+  brideFull: 'Ava Rosalind Bennett',
+  groomFull: 'Ethan James Caldwell',
+  brideParents: 'Mr. & Mrs. Robert Bennett',
+  groomParents: 'Mr. & Mrs. James Caldwell',
+  date: new Date('2026-11-14T17:00:00'),
+  dateLabel: 'Saturday, the Fourteenth of November',
+  yearLabel: 'Two Thousand Twenty-Six',
+  time: '5:00 in the Evening',
+  venueName: 'The Grand Willow Estate',
+  venueAddress: '4600 Silverado Trail, Napa Valley, California',
+  mapUrl: 'https://maps.google.com/?q=The+Grand+Willow+Estate+Napa+Valley+California',
+  rsvpDeadline: 'October 24, 2026',
+  hashtag: '#AvaAndEthanForever',
+};

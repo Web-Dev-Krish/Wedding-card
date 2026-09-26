@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Playfair Display', serif;
+  --font-script: 'Great Vibes', cursive;
+  --font-body: 'Cormorant Garamond', serif;
+
+  --color-cream: #fdf8f2;
+  --color-cream-dark: #f6ead9;
+
+  --color-blush-50: #fdf3f1;
+  --color-blush-100: #f8e3de;
+  --color-blush-200: #f0cac2;
+  --color-blush-300: #e3a89b;
+
+  --color-rose-400: #c98a83;
+  --color-rose-500: #b56d68;
+  --color-rose-600: #954f4f;
+  --color-rose-700: #713a3c;
+  --color-rose-800: #4f2b2d;
+
+  --color-gold-300: #e6cd97;
+  --color-gold-400: #d4b46a;
+  --color-gold-500: #bd9748;
+  --color-gold-600: #997638;
+
+  --color-ink: #362822;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+  }
+}
+
+@layer utilities {
+  .font-script {
+    font-family: var(--font-script);
+  }
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .text-shadow-soft {
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.35);
+  }
+
+  .divider-line {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-gold-500), transparent);
+  }
+
+  .paper-texture {
+    background-image:
+      radial-gradient(circle at 20% 20%, rgba(189, 151, 72, 0.06), transparent 40%),
+      radial-gradient(circle at 80% 60%, rgba(181, 109, 104, 0.06), transparent 40%);
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+::selection {
+  background: var(--color-gold-400);
+  color: #fff;
+}

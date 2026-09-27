@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Heart, Sparkles, Gem } from 'lucide-react';
 import SectionHeading from './SectionHeading';
+import Petals from './Petals';
 import rosesImg from '../assets/roses.jpg';
 
 const milestones = [
@@ -26,8 +27,9 @@ const milestones = [
 
 export default function OurStory() {
   return (
-    <section id="story" className="relative py-24 px-4 bg-blush-50">
-      <div className="max-w-5xl mx-auto">
+    <section id="story" className="relative py-24 px-4 bg-blush-50 overflow-hidden">
+      <Petals count={14} tone="light" />
+      <div className="relative z-10 max-w-5xl mx-auto">
         <SectionHeading eyebrow="Our Journey" title="Our Story" />
 
         <div className="grid md:grid-cols-2 gap-12 items-center">

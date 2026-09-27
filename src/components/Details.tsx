@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { MapPin, CalendarPlus, Navigation } from 'lucide-react';
 import SectionHeading from './SectionHeading';
+import Petals from './Petals';
 import { EVENT } from '../lib/event';
 import { downloadInvite } from '../lib/ics';
 
@@ -8,8 +9,9 @@ export default function Details() {
   const mapEmbedUrl = `https://maps.google.com/maps?q=${encodeURIComponent(EVENT.venueName + ', ' + EVENT.venueAddress)}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
 
   return (
-    <section id="details" className="relative bg-cream py-24 px-4">
-      <div className="max-w-6xl mx-auto">
+    <section id="details" className="relative bg-cream py-24 px-4 overflow-hidden">
+      <Petals count={14} tone="light" />
+      <div className="relative z-10 max-w-6xl mx-auto">
         <SectionHeading eyebrow="The Venue" title="Find Your Way" />
 
         <div className="grid lg:grid-cols-2 gap-12 items-center mt-12">

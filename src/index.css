@@ -77,3 +77,22 @@
   background: var(--color-gold-400);
   color: #fff;
 }
+
+@keyframes heartFall {
+  0% {
+    top: -8%;
+    opacity: 0;
+    transform: translateX(0) rotate(var(--rot-start, 0deg));
+  }
+  15% {
+    opacity: 0.85;
+  }
+  80% {
+    opacity: 0.85;
+  }
+  100% {
+    top: 105%;
+    opacity: 0;
+    transform: translateX(var(--drift, 30px)) rotate(var(--rot-end, 360deg));
+  }
+}

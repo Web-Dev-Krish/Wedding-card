@@ -2,6 +2,7 @@ import { useState, FormEvent } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Heart, Send, Users, Mail, MessageCircleHeart } from 'lucide-react';
 import SectionHeading from './SectionHeading';
+import Petals from './Petals';
 import { EVENT } from '../lib/event';
 
 type Attendance = 'yes' | 'no' | '';
@@ -60,6 +61,7 @@ export default function RSVP() {
       <div className="absolute inset-0 paper-texture opacity-40" />
       <div className="absolute -top-20 -left-20 w-72 h-72 rounded-full bg-gold-400/10 blur-3xl" />
       <div className="absolute -bottom-24 -right-20 w-80 h-80 rounded-full bg-blush-200/10 blur-3xl" />
+      <Petals count={14} tone="dark" />
 
       <div className="relative max-w-xl mx-auto">
         <SectionHeading eyebrow="Kindly Respond" title="RSVP" light />

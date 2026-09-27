@@ -10,8 +10,8 @@ export default function Hero() {
     <section className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden text-center px-4 pt-24 pb-16">
       <img
         src={heroImg}
-        alt="Engagement ring among rose petals"
-        className="absolute inset-0 w-full h-full object-cover"
+        alt="Jayant and Sakshi"
+        className="absolute inset-0 w-full h-full object-cover object-[58%_center] md:object-center"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-ink/70 via-rose-800/60 to-ink/85" />
       <Petals count={16} />

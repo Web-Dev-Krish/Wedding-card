@@ -64,9 +64,6 @@ export default function Footer() {
               Privacy Policy
             </a>
             <a href="https://devsiy.in" target="_blank" rel="noopener noreferrer" className="hover:text-gold-300 transition-colors">
-              Admin Panel
-            </a>
-            <a href="https://devsiy.in" target="_blank" rel="noopener noreferrer" className="hover:text-gold-300 transition-colors">
               Terms of Service
             </a>
           </div>

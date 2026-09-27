@@ -3,12 +3,19 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Heart } from 'lucide-react';
 import { EVENT } from '../lib/event';
 
-export default function Envelope({ onOpen }: { onOpen: () => void }) {
+export default function Envelope({
+  onOpen,
+  onStartOpen,
+}: {
+  onOpen: () => void;
+  onStartOpen?: () => void;
+}) {
   const [opening, setOpening] = useState(false);
 
   const handleClick = () => {
     if (opening) return;
     setOpening(true);
+    onStartOpen?.();
     setTimeout(() => onOpen(), 1300);
   };
 

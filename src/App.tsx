@@ -8,13 +8,24 @@ import OurStory from './components/OurStory';
 import Gallery from './components/Gallery';
 import RSVP from './components/RSVP';
 import Footer from './components/Footer';
+import MusicPlayer from './components/MusicPlayer';
 
 function App() {
   const [opened, setOpened] = useState(false);
+  const [openingStarted, setOpeningStarted] = useState(false);
 
   return (
     <div id="top" className="min-h-screen bg-cream overflow-x-hidden">
-      <AnimatePresence>{!opened && <Envelope onOpen={() => setOpened(true)} />}</AnimatePresence>
+      <MusicPlayer autoPlayTrigger={openingStarted || opened} />
+
+      <AnimatePresence>
+        {!opened && (
+          <Envelope
+            onOpen={() => setOpened(true)}
+            onStartOpen={() => setOpeningStarted(true)}
+          />
+        )}
+      </AnimatePresence>
 
       {opened && (
         <motion.div

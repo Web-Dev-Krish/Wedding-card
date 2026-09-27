@@ -23,7 +23,7 @@ export default defineConfig(async ({ mode }) => {
     define: processEnvDefines,
     server: {
       watch: {
-        ignored: ['**/Docs/**'],
+        ignored: ['**/Docs/**', '**/*.mp3'],
       },
     },
   };

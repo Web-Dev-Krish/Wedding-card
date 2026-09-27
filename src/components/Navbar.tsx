@@ -32,7 +32,7 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto flex items-center justify-between px-5 py-3">
         <a href="#top" className={`flex items-center gap-2 font-script text-2xl ${scrolled ? 'text-rose-700' : 'text-cream'}`}>
           <Heart className="w-4 h-4" fill="currentColor" />
-          {EVENT.brideName} &amp; {EVENT.groomName}
+          {EVENT.groomName} &amp; {EVENT.brideName}
         </a>
 
         <div className="hidden md:flex items-center gap-8">

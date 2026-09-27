@@ -24,9 +24,9 @@ function App() {
         >
           <Navbar />
           <Hero />
-          <Details />
           <OurStory />
           <Gallery />
+          <Details />
           <RSVP />
           <Footer />
         </motion.div>

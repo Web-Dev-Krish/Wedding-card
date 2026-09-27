@@ -20,7 +20,7 @@ const milestones = [
     icon: Gem,
     year: '2026',
     title: 'The Proposal',
-    text: 'Under a sky full of stars in Napa Valley, Ethan got down on one knee — and Ava said yes before he finished the question.',
+    text: 'Under a sky full of stars, Jayant got down on one knee — and Sakshi said yes before he finished the question.',
   },
 ];
 

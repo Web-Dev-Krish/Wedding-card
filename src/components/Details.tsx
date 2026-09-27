@@ -1,90 +1,86 @@
 import { motion } from 'framer-motion';
-import { CalendarHeart, Clock, MapPin, Shirt, Download, Navigation } from 'lucide-react';
+import { MapPin, CalendarPlus, Navigation } from 'lucide-react';
 import SectionHeading from './SectionHeading';
 import { EVENT } from '../lib/event';
 import { downloadInvite } from '../lib/ics';
 
-const cards = [
-  {
-    icon: CalendarHeart,
-    title: 'The Date',
-    lines: [EVENT.dateLabel, EVENT.yearLabel],
-  },
-  {
-    icon: Clock,
-    title: 'The Time',
-    lines: [EVENT.time, 'Reception & dinner to follow'],
-  },
-  {
-    icon: MapPin,
-    title: 'The Venue',
-    lines: [EVENT.venueName, EVENT.venueAddress],
-  },
-  {
-    icon: Shirt,
-    title: 'Dress Code',
-    lines: ['Garden Formal', 'Blush, gold & earth tones welcomed'],
-  },
-];
-
 export default function Details() {
+  const mapEmbedUrl = `https://maps.google.com/maps?q=${encodeURIComponent(EVENT.venueName + ', ' + EVENT.venueAddress)}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
+
   return (
     <section id="details" className="relative bg-cream py-24 px-4">
-      <div className="max-w-5xl mx-auto">
-        <SectionHeading eyebrow="Save the Date" title="Celebration Details" />
+      <div className="max-w-6xl mx-auto">
+        <SectionHeading eyebrow="The Venue" title="Find Your Way" />
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {cards.map((c, i) => (
-            <motion.div
-              key={c.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.6 }}
-              className="bg-white/70 border border-gold-300/40 rounded-xl px-6 py-8 text-center shadow-sm hover:shadow-lg transition-shadow"
-            >
-              <div className="w-12 h-12 mx-auto rounded-full bg-rose-500/10 flex items-center justify-center mb-4">
-                <c.icon className="w-5 h-5 text-rose-600" strokeWidth={1.4} />
-              </div>
-              <h3 className="font-display text-lg text-rose-800 mb-2">{c.title}</h3>
-              {c.lines.map((l) => (
-                <p key={l} className="font-body text-sm text-ink/70 leading-snug">
-                  {l}
-                </p>
-              ))}
-            </motion.div>
-          ))}
+        <div className="grid lg:grid-cols-2 gap-12 items-center mt-12">
+          {/* Left Column: Details */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col gap-8"
+          >
+            <div>
+              <h3 className="font-display text-3xl text-rose-800 mb-3">{EVENT.venueName}</h3>
+              <p className="flex items-center gap-2 text-ink/70 font-body">
+                <MapPin className="w-5 h-5 text-gold-500" />
+                {EVENT.venueAddress}
+              </p>
+            </div>
+
+            <div className="bg-white/60 border border-gold-300/40 rounded-xl p-6 shadow-sm">
+              <p className="text-gold-600 text-xs tracking-[0.2em] uppercase mb-3">Engagement</p>
+              <p className="font-display text-xl text-ink mb-1">{EVENT.dateLabel} {EVENT.yearLabel}</p>
+              <p className="font-body text-ink/70">{EVENT.time} onwards</p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a
+                href={EVENT.mapUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-rose-700 text-cream font-body tracking-wide hover:bg-rose-800 transition-colors shadow-md w-full sm:w-auto"
+              >
+                <Navigation className="w-4 h-4" /> Get Directions
+              </a>
+              <button
+                onClick={downloadInvite}
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-gold-400 text-gold-700 font-body tracking-wide hover:bg-gold-50 transition-colors w-full sm:w-auto"
+              >
+                <CalendarPlus className="w-4 h-4" /> Add to Calendar
+              </button>
+            </div>
+          </motion.div>
+
+          {/* Right Column: Map Embed */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative rounded-2xl overflow-hidden shadow-xl border-4 border-white h-[400px]"
+          >
+            <iframe
+              src={mapEmbedUrl}
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen={true}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Venue Map"
+            />
+            <div className="absolute inset-0 pointer-events-none ring-1 ring-gold-400/30 rounded-2xl" />
+          </motion.div>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.3 }}
-          className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4"
-        >
-          <button
-            onClick={downloadInvite}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-rose-600 text-cream font-body tracking-wide hover:bg-rose-700 transition-colors shadow-md"
-          >
-            <Download className="w-4 h-4" /> Add to Calendar
-          </button>
-          <a
-            href={EVENT.mapUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-gold-500 text-gold-600 font-body tracking-wide hover:bg-gold-500 hover:text-cream transition-colors"
-          >
-            <Navigation className="w-4 h-4" /> Get Directions
-          </a>
-        </motion.div>
-
+        
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
-          className="text-center mt-8 font-body italic text-rose-500 text-sm"
+          className="text-center mt-12 font-body italic text-rose-500 text-sm"
         >
           kindly reply by {EVENT.rsvpDeadline}
         </motion.p>

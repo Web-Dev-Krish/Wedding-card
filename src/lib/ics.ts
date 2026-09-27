@@ -23,9 +23,9 @@ export function downloadInvite() {
   const ics = [
     'BEGIN:VCALENDAR',
     'VERSION:2.0',
-    'PRODID:-//AvaAndEthan//Engagement//EN',
+    'PRODID:-//JayantAndSakshi//Engagement//EN',
     'BEGIN:VEVENT',
-    `UID:${Date.now()}@avaandethan.com`,
+    `UID:${Date.now()}@jayantandsakshi.com`,
     `DTSTAMP:${toICSDate(new Date())}`,
     `DTSTART:${toICSDate(start)}`,
     `DTEND:${toICSDate(end)}`,
@@ -40,7 +40,7 @@ export function downloadInvite() {
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = 'Ava-Ethan-Engagement.ics';
+  a.download = 'Jayant-Sakshi-Engagement.ics';
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);

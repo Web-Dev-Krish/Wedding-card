@@ -31,7 +31,7 @@ export default function Hero() {
         transition={{ duration: 1, delay: 0.4 }}
         className="relative z-10 font-script text-6xl sm:text-8xl text-cream text-shadow-soft leading-tight"
       >
-        {EVENT.brideName} <span className="text-gold-300">&amp;</span> {EVENT.groomName}
+        {EVENT.groomName} <span className="text-gold-300">&amp;</span> {EVENT.brideName}
       </motion.h1>
 
       <motion.p

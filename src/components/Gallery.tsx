@@ -1,13 +1,25 @@
 import { motion } from 'framer-motion';
 import SectionHeading from './SectionHeading';
-import c1 from '../assets/couple-1.jpg';
-import c2 from '../assets/couple-2.jpg';
-import c3 from '../assets/couple-3.jpg';
+
+import g2 from '../assets/GalleryImages (2).jpeg';
+import g3 from '../assets/GalleryImages (3).jpeg';
+import g4 from '../assets/GalleryImages (4).jpeg';
+import g5 from '../assets/GalleryImages (5).jpeg';
+import g6 from '../assets/GalleryImages (6).jpeg';
+import g7 from '../assets/GalleryImages (7).jpeg';
+import g8 from '../assets/GalleryImages (8).jpeg';
+import g9 from '../assets/GalleryImages (9).jpeg';
 
 const images = [
-  { src: c1, alt: 'Ava and Ethan laughing together', span: 'md:row-span-2' },
-  { src: c2, alt: 'Ava and Ethan walking on the beach', span: '' },
-  { src: c3, alt: 'Close up of engagement ring', span: '' },
+
+  { src: g2, alt: 'Jayant and Sakshi', span: '', position: 'object-top' },
+  { src: g3, alt: 'Jayant and Sakshi', span: '', position: 'object-top' },
+  { src: g4, alt: 'Jayant and Sakshi', span: '', position: 'object-top' },
+  { src: g5, alt: 'Jayant and Sakshi', span: '', position: 'object-top' },
+  { src: g6, alt: 'Jayant and Sakshi', span: '', position: 'object-top' },
+  { src: g7, alt: 'Jayant and Sakshi', span: '', position: 'object-top' },
+  { src: g8, alt: 'Jayant and Sakshi', span: '', position: 'object-top' },
+  { src: g9, alt: 'Jayant and Sakshi', span: 'col-span-2 md:col-span-2', position: 'object-center' },
 ];
 
 export default function Gallery() {
@@ -16,10 +28,10 @@ export default function Gallery() {
       <div className="max-w-5xl mx-auto">
         <SectionHeading eyebrow="Moments We Treasure" title="Our Gallery" />
 
-        <div className="grid grid-cols-2 md:grid-cols-3 md:grid-rows-2 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 auto-rows-fr">
           {images.map((img, i) => (
             <motion.div
-              key={img.alt}
+              key={i}
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -31,7 +43,7 @@ export default function Gallery() {
               <img
                 src={img.src}
                 alt={img.alt}
-                className="w-full h-56 md:h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                className={`w-full h-56 md:h-full object-cover transition-transform duration-700 group-hover:scale-110 ${img.position || 'object-center'}`}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
             </motion.div>

@@ -59,7 +59,7 @@ export default function Envelope({ onOpen }: { onOpen: () => void }) {
               className="absolute inset-x-4 top-3 bottom-3 sm:inset-x-6 rounded-sm bg-cream shadow-inner flex flex-col items-center justify-center z-10 border border-gold-300/50"
             >
               <span className="font-script text-2xl sm:text-3xl text-rose-600">
-                {EVENT.brideName} &amp; {EVENT.groomName}
+                {EVENT.groomName} &amp; {EVENT.brideName}
               </span>
               <span className="font-body text-[10px] sm:text-xs tracking-[0.3em] uppercase text-rose-400 mt-1">
                 We're Engaged
